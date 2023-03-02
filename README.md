@@ -13,5 +13,8 @@ My app is designed to:
 *	display the notes
 
 The app is written in Python and is console-based.
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fa79304db07ecc5d2b0003bf57bc7ed04a1a7168
