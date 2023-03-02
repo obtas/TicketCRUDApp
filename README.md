@@ -1,7 +1,7 @@
 # TicketCRUDApp
 
 ## Table of contents
-* [About App] (#about-app)
+* [About App] (#About-App)
 
 ## About App
 Simple CRUD app created for a QA Apprenticeship assignment for the module 'Coding Fundamentals". When issues arise in the workplace, a platform is needed to capture the work requests made and manage the requests until they can be resolved. 
