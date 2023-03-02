@@ -3,22 +3,22 @@
 
 CREATE TABLE IF NOT EXISTS ticket(
     ticket_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    date_time TEXT,
+    date_time DATETIME DEFAULT CURRENT_TIMESTAMP,
     assigned_to VARCHAR(20) NOT NULL,
     severity INTEGER NOT NULL,
     ticket_status VARCHAR(8) NOT NULL,
     title VARCHAR NULL,
-    notes VARCHAR(MAX) NULL
+    notes VARCHAR NULL
 );
 
-INSERT INTO ticket (ticket_id, date_time, assigned_to, severity, ticket_status, title, notes) VALUES (
-    'Abiodun A', '5', 'OPEN', 'Locker assignment', 'Assign locker to client in office')
+INSERT INTO ticket (assigned_to, severity, ticket_status, title, notes) VALUES (
+    'Abiodun A', 5, 'OPEN', 'Locker assignment', 'Assign locker to client in office');
 
-INSERT INTO ticket (ticket_id, date_time, assigned_to, severity, ticket_status, title, notes) VALUES (
-    'Beth B', '5', 'RESOLVED', 'Vending Machine', 'Refund processed')
+INSERT INTO ticket (assigned_to, severity, ticket_status, title, notes) VALUES (
+    'Beth B', 5, 'RESOLVED', 'Vending Machine', 'Refund processed');
 
-INSERT INTO ticket (ticket_id, date_time, assigned_to, severity, ticket_status, title, notes) VALUES (
-    'Carl C', '3', 'CLOSED', 'Bathroom on floor 2')
+INSERT INTO ticket (assigned_to, severity, ticket_status, title, notes) VALUES (
+    'Carl C', 3, 'CLOSED', 'Bathroom on floor 2', NULL);
 
-INSERT INTO ticket (ticket_id, date_time, assigned_to, severity, ticket_status, title, notes) VALUES (
-    'Daniel D', '5', 'OPEN', 'Kitchen on floor 5', 'Coffee machine screen broken')
+INSERT INTO ticket (assigned_to, severity, ticket_status, title, notes) VALUES (
+    'Daniel D', 5, 'OPEN', 'Kitchen on floor 5', 'Coffee machine screen broken');
