@@ -8,7 +8,7 @@ def view_ticket(id):
     view_ticket = db.viewTicket(id)
     return view_ticket
 
-def view_all_orders():
+def view_all_tickets():
     all_orders = db.viewAllTickets()
     return all_orders
 
