@@ -9,8 +9,8 @@ def view_ticket(id):
     return view_ticket
 
 def view_all_tickets():
-    all_orders = db.viewAllTickets()
-    return all_orders
+    all_tickets = db.viewAllTickets()
+    return all_tickets
 
 def update_ticket(id, table_title, value):
     update = db.updateTicket
