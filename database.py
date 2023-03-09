@@ -37,12 +37,13 @@ def addTicket(assigned_to, severity, ticket_status, title, notes):
     
 def viewTicket(id):  
     view_ticket = f"SELECT * FROM ticket WHERE ticket_id = {id}"
-    print(runQuery(view_ticket))
-    
+    single_ticket = runQuery(view_ticket)
+    table = tabulate(single_ticket, headers=["Ticket ID", "Date and Time of Ticket Creation", "Assigned to", "Severity", "Status", "Title", "Notes"], tablefmt="grid", stralign="center")
+    print(table)
+   
 def viewAllTickets():
     query = "SELECT * FROM ticket"
     ticket_list = runQuery(query)
-    print(ticket_list)
     table = tabulate(ticket_list, headers=["Ticket ID", "Date and Time of Ticket Creation", "Assigned to", "Severity", "Status", "Title", "Notes"], tablefmt="grid", stralign="center")
     print(table)
     
@@ -78,9 +79,9 @@ def deleteAllTickets():
 # print("-" * 50)
 # viewAllTickets()
 # print("-" * 50)
-# viewTicket(1)
+viewTicket(26)
 # # print("-" * 50)
 # deleteAllTickets()
-viewAllTickets()
+# viewAllTickets()
 # print("-" * 50)
 # setupTable()
