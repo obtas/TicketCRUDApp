@@ -1,4 +1,6 @@
 import sqlite3 as sql
+from tabulate import tabulate
+# from database import viewAllTickets2
 
 # Connect to database
 conn = sql.connect("ticket_db")
@@ -39,7 +41,10 @@ def viewTicket(id):
     
 def viewAllTickets():
     query = "SELECT * FROM ticket"
-    print(runQuery(query))
+    ticket_list = runQuery(query)
+    print(ticket_list)
+    table = tabulate(ticket_list, headers=["Ticket ID", "Date and Time of Ticket Creation", "Assigned to", "Severity", "Status", "Title", "Notes"], tablefmt="grid", stralign="center")
+    print(table)
     
 def updateTicket(id, table_title, value):
     update_query = f"UPDATE ticket SET '{table_title}' = '{value}' WHERE ticket_id = '{id}'"
@@ -62,6 +67,7 @@ def deleteAllTickets():
     print("Successfully deleted all tickets")
     return True
     
+    
 # setupTable() 
 # print("-" * 50)  
 # print(runQuery("SELECT * FROM ticket")) 
@@ -75,7 +81,6 @@ def deleteAllTickets():
 # viewTicket(1)
 # # print("-" * 50)
 # deleteAllTickets()
-# viewAllTickets()
+viewAllTickets()
 # print("-" * 50)
 # setupTable()
-
