@@ -1,7 +1,7 @@
 import database as db
 
 def create_ticket(assigned_to, severity, ticket_status, title, notes):
-    new_ticket = db.addTicket()
+    new_ticket = db.addTicket(assigned_to, severity, ticket_status, title, notes)
     return new_ticket
 
 def view_ticket(id):
@@ -12,8 +12,8 @@ def view_all_tickets():
     all_tickets = db.viewAllTickets()
     return all_tickets
 
-def update_ticket(id, table_title, value):
-    update = db.updateTicket
+def update_ticket(ticket_id, column_to_update, updated_value):
+    update = db.updateTicket(ticket_id, column_to_update, updated_value)
     return update
 
 def delete_ticket(id):
