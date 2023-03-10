@@ -32,27 +32,41 @@ def create_a_ticket():
     title = input("Please give a title for the ticket (or leave blank): ")
     notes = input("Enter any notes (or leave blank): ")
     s.create_ticket(assigned_to, severity, ticket_status, title, notes)
-    print("Ticket created")
+    # print("Ticket created")
     
 def view_a_ticket():
     ticket_id = input("Please enter the ID of the ticket you would like to view: ")
-    return s.view_ticket(ticket_id)
+    s.view_ticket(ticket_id)
     
 def view_all_tickets():
-    return s.view_all_tickets()
+    s.view_all_tickets()
 
 def update_ticket():
     ticket_id = input("What is the ID of the ticket you would like to update?: ")
-    ticket_title = input("Which item of the ticket would you like to update?: ")
+    column_to_update = input(" 1. Assigned to \n 2. Severity \n 3. Status \n 4. Title \n 5. Notes \n 6. Quit \n\n")
+    if column_to_update == "6":
+        start_app()
+    elif column_to_update == "1":
+        column_to_update = "assigned_to"
+    elif column_to_update == "2":
+        column_to_update = "severity"
+    elif column_to_update == "3":
+        column_to_update = "ticket_status"
+    elif column_to_update == "4":
+        column_to_update = "title"
+    else:
+        column_to_update == "5"
+        column_to_update = "Notes"
+    # table_title = input("Which item of the ticket would you like to update?: ")
     updated_value = input("Please enter the updated value: ")
-    return s.update_ticket(ticket_id, ticket_title, updated_value)
+    s.update_ticket(ticket_id, column_to_update, updated_value)
     
 def delete_ticket():
     ticket_id = input("Please enter the ID of the ticket you would like to delete: ")
-    return s.delete_ticket(ticket_id)  
+    s.delete_ticket(ticket_id)  
 
 def delete_all_tickets():
-    return s.delete_all_tickets()
+    s.delete_all_tickets()
     
 menu = """
     Welcome to the ticketing service, what would you like to do? 
