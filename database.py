@@ -8,7 +8,7 @@ conn = sql.connect("ticket_db")
 # Cursor object that sends commands to SQL
 cursor = conn.cursor()
 
-print("Database created and Successfully Connected to SQLite")
+# print("Database created and Successfully Connected to SQLite")
 
 # close the connection
 # conn.close()
@@ -40,15 +40,17 @@ def viewTicket(id):
     single_ticket = runQuery(view_ticket)
     table = tabulate(single_ticket, headers=["Ticket ID", "Date and Time of Ticket Creation", "Assigned to", "Severity", "Status", "Title", "Notes"], tablefmt="grid", stralign="center")
     print(table)
+    return True
    
 def viewAllTickets():
     query = "SELECT * FROM ticket"
     ticket_list = runQuery(query)
     table = tabulate(ticket_list, headers=["Ticket ID", "Date and Time of Ticket Creation", "Assigned to", "Severity", "Status", "Title", "Notes"], tablefmt="grid", stralign="center")
     print(table)
-    
-def updateTicket(id, table_title, value):
-    update_query = f"UPDATE ticket SET '{table_title}' = '{value}' WHERE ticket_id = '{id}'"
+    return True
+
+def updateTicket(ticket_id, column_to_update, updated_value):
+    update_query = f"UPDATE ticket SET '{column_to_update}' = '{updated_value}' WHERE ticket_id = '{ticket_id}'"
     runQuery(update_query)
     commitChanges()
     print("Successfully updated ticket")
@@ -79,7 +81,7 @@ def deleteAllTickets():
 # print("-" * 50)
 # viewAllTickets()
 # print("-" * 50)
-viewTicket(26)
+# viewTicket(26)
 # # print("-" * 50)
 # deleteAllTickets()
 # viewAllTickets()
