@@ -32,43 +32,39 @@ def addTicket(assigned_to, severity, ticket_status, title, notes):
     query = f"INSERT INTO ticket (assigned_to, severity, ticket_status, title, notes) VALUES ('{assigned_to}', '{severity}', '{ticket_status}', '{title}', '{notes}')"
     runQuery(query)
     commitChanges()
-    print("Successfully added ticket")
-    return True
+    return "Successfully added ticket"
     
 def viewTicket(id):  
     view_ticket = f"SELECT * FROM ticket WHERE ticket_id = {id}"
     single_ticket = runQuery(view_ticket)
     table = tabulate(single_ticket, headers=["Ticket ID", "Date and Time of Ticket Creation", "Assigned to", "Severity", "Status", "Title", "Notes"], tablefmt="grid", stralign="center")
+    print(f"Here is ticket: ", id)
     print(table)
-    return True
    
 def viewAllTickets():
     query = "SELECT * FROM ticket"
     ticket_list = runQuery(query)
     table = tabulate(ticket_list, headers=["Ticket ID", "Date and Time of Ticket Creation", "Assigned to", "Severity", "Status", "Title", "Notes"], tablefmt="grid", stralign="center")
+    print("The tickets available: ")
     print(table)
-    return True
 
 def updateTicket(ticket_id, column_to_update, updated_value):
     update_query = f"UPDATE ticket SET '{column_to_update}' = '{updated_value}' WHERE ticket_id = '{ticket_id}'"
     runQuery(update_query)
     commitChanges()
     print("Successfully updated ticket")
-    return True
     
 def deleteTicket(id):
     delete_query= f"DELETE FROM ticket WHERE ticket_id = {id}"
     runQuery(delete_query)
     commitChanges()
     print("Successfully deleted ticket")
-    return True
     
 def deleteAllTickets():
     delete_all_query = f"DELETE FROM ticket"
     runQuery(delete_all_query)
     commitChanges()
     print("Successfully deleted all tickets")
-    return True
     
     
 # setupTable() 
