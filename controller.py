@@ -8,17 +8,17 @@ def start_app():
     while not exit:
         choice = input("Please select a choice: ")
         if choice == "1":
-            print(create_a_ticket())
+            create_a_ticket()
         elif choice == "2":
-            print(view_a_ticket())
+            view_a_ticket()
         elif choice == "3":
-            print(view_all_tickets())
+            view_all_tickets()
         elif choice == "4":
-            print(update_ticket())
+            update_ticket()
         elif choice == "5":
-            print(delete_ticket())
+            delete_ticket()
         elif choice == "6":
-            print(delete_all_tickets())
+            delete_all_tickets()
         elif choice == "7":
             sys.exit("User has quit ticket system")    
         else:
