@@ -32,7 +32,7 @@ def create_a_ticket():
     title = input("Please give a title for the ticket (or leave blank): ")
     notes = input("Enter any notes (or leave blank): ")
     s.create_ticket(assigned_to, severity, ticket_status, title, notes)
-    # print("Ticket created")
+    print("Ticket created")
     
 def view_a_ticket():
     ticket_id = input("Please enter the ID of the ticket you would like to view: ")
@@ -43,6 +43,7 @@ def view_all_tickets():
 
 def update_ticket():
     ticket_id = input("What is the ID of the ticket you would like to update?: ")
+    print("Which item of the ticket would you like to update?: ")
     column_to_update = input(" 1. Assigned to \n 2. Severity \n 3. Status \n 4. Title \n 5. Notes \n 6. Quit \n\n")
     if column_to_update == "6":
         start_app()
@@ -57,7 +58,6 @@ def update_ticket():
     else:
         column_to_update == "5"
         column_to_update = "Notes"
-    # table_title = input("Which item of the ticket would you like to update?: ")
     updated_value = input("Please enter the updated value: ")
     s.update_ticket(ticket_id, column_to_update, updated_value)
     
